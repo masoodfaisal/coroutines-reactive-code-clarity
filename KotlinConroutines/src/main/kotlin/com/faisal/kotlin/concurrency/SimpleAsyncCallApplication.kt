@@ -13,9 +13,14 @@ fun main() {
 
 fun processOrder() = runBlocking {
     val orderId = "SN19876"
+
+    //make a call, but donot wait for it.
     val orderInfo = async { getOrderInfo(orderId) }
+
+    //make a call, but donot wait for it.
     val shipmentInfo = async { getShipmentInfo(orderId) }
 
+    //make the call, and wait for the results to arrive from the previous calls.
     sendEmail(shipmentInfo.await(), orderInfo.await())
 
 
