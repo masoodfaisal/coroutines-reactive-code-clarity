@@ -1,5 +1,5 @@
 # How coroutines can help improve code readability
-Kotlin coroutines provides a way to use the imperative style of programming approach while avoiding a thread allocated to each task. Much is written about light weight threads and many resources are available on the internet, if you want to read more about this. 
+[Kotlin](https://kotlinlang.org) coroutines provides a way to use the imperative style of programming approach while avoiding a thread allocated to each task. Much is written about light weight threads and many resources are available on the internet, if you want to read more about this. 
 
 In this blog, I am focusing on the code readibility and how, in my opinon, coroutines provide a cleaner approach to write code as compared to reactive approach. I have used [Project Reactor](https://projectreactor.io) to showcase the reactive code, however, the example can be extended to any reactive library e.g. RxJava. Note that, coroutines based code scales as well as the code writtne using reactive approach. To me, coroutines is a win-win situation for developers.
 
@@ -49,10 +49,18 @@ fun processOrder()  {
 ```
 
 ```java
- Mono.zip(getOrderInfo(orderIdNumber), getShipmentInfo(orderIdNumber))
+
+
+    void processOrder()  {
+        String orderIdNumber = "SN19876";
+
+        Mono.zip(getOrderInfo(orderIdNumber), getShipmentInfo(orderIdNumber))
                 .flatMap(data -> sendEmail(data.getT1(), data.getT2()))
                 .doOnSuccess(o -> System.out.println("Got the result " + o))
                 .subscribe();
+
+
+    }
 ```
 
 This project is using following tools 
