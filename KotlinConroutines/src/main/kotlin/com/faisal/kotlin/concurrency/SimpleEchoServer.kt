@@ -24,7 +24,7 @@ fun main() = runBlocking {
             println("Waiting for new connection")
             val clientSocket = serverSocket.accept()
 
-            launch(Executors.newFixedThreadPool(20).asCoroutineDispatcher()) {
+            launch(Dispatchers.Unconfined) {
                 handleConnection(clientSocket)
             }
 
