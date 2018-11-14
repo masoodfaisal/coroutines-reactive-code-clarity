@@ -22,16 +22,16 @@ public class SimpleAsyncCallApplication {
     void processOrder()  {
         String orderIdNumber = "SN19876";
 
-        Mono<String> orderInfoMono = Mono.just(orderIdNumber)
-                .flatMap(stringMono -> getOrderInfo(stringMono));
+        Mono<String> orderInfoMono = getOrderInfo(orderIdNumber);
 
-        Mono<String> shipmentMono = Mono.just(orderIdNumber)
-                .flatMap(orderInfo -> getShipmentInfo(orderInfo));
+        Mono<String> shipmentMono = getShipmentInfo(orderIdNumber);
 
         Mono.zip(orderInfoMono, shipmentMono)
         .flatMap(data -> sendEmail(data.getT1(), data.getT2()))
                 .doOnSuccess(o -> System.out.println("Got the result " + o))
         .subscribe();
+
+        //OR you can do this.
 
         Mono.zip(getOrderInfo(orderIdNumber), getShipmentInfo(orderIdNumber))
                 .flatMap(data -> sendEmail(data.getT1(), data.getT2()))
