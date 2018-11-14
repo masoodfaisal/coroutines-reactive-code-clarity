@@ -1,4 +1,6 @@
 # How coroutines can help improve code readability
+> Programs must be written for people to read, and only incidentally for machines to execute. — [Abelson and Sussman](https://en.wikiquote.org/wiki/Programming_languages)
+
 [Kotlin](https://kotlinlang.org) coroutines provides an easy way to write highly scalable code, using traditional style of programming, while avoiding a thread allocated to each task. Much is written about light weight threads and many resources are available on the internet, if you want to read more about this. 
 
 In this blog, I am focusing on the code readibility and how, in my opinon, coroutines provide a cleaner approach to write code as compared to reactive approach. I have used [Project Reactor](https://projectreactor.io) to showcase the reactive code, however, the example can be extended to any reactive library e.g. RxJava. Note that, coroutines based code scales as well as the code writtne using reactive approach. To me, coroutines is a win-win situation for developers.
@@ -16,8 +18,6 @@ Let's call the **_processOrder_** function as the **_process_** function and the
 This full set of code is available in this [repo](https://github.com/masoodfaisal/coroutines-reactive-code-clarity). It is showcasing how Kotlin [couroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html) can be used to write more readable code as compared to reactive approach without loosing the scalibility benefits.
 
 ## Simple is beautiful
-
-> Programs must be written for people to read, and only incidentally for machines to execute. — [Abelson and Sussman](https://en.wikiquote.org/wiki/Programming_languages)
 
 In this section, a comparison of code is provided if it is written using kotlin's aproach vs the reactive approach.
 
