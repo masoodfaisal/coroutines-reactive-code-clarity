@@ -3,7 +3,7 @@
 
 [Kotlin](https://kotlinlang.org) coroutines provides an easy way to write highly scalable code, using traditional style of programming, while avoiding a thread allocated to each task. Much is written about light weight threads and many resources are available on the internet, if you want to read more about this. 
 
-In this blog, I am focusing on the code readibility and how, in my opinon, coroutines provide a cleaner approach to write code as compared to reactive approach. I have used [Project Reactor](https://projectreactor.io) to showcase the reactive code, however, the example can be extended to any reactive library e.g. RxJava. Note that, coroutines based code scales as well as the code writtne using reactive approach. To me, coroutines is a win-win situation for developers.
+In this blog, I am focusing on the code readability and how, in my opinion, coroutines provide a cleaner approach to write code as compared to reactive approach. I have used [Project Reactor](https://projectreactor.io) to showcase the reactive code, however, the example can be extended to any reactive library e.g. RxJava. Note that, coroutines based code scales as well as the code written using reactive approach. To me, coroutines is a win-win situation for developers.
 
 You can read more about Kotlin coroutines [here](https://kotlinlang.org/docs/reference/coroutines-overview.html). A very exciting [Project Loom](https://openjdk.java.net/projects/loom/) is going to bring the light weight thread model to Java. It is a simialr concept as [GOLang routines](https://tour.golang.org/concurrency/1). 
 
@@ -66,8 +66,9 @@ fun processOrder()  {
 
     }
 ```
+From the example above, it is evident that coroutines provides a bit better alternative to write more readable code, specailly in the case of concurrent calls. The reactive code I have mentioned can be optimised to reduce a bit more clutter, but there will always by reactive specific classes which I can avoid now.
 
-This project is using following tools 
+This project is using following tools. 
 -   [Project Reactor](https://projectreactor.io)
--   [kotlin] (https://kotlinlang.org)
+-   [kotlin](https://kotlinlang.org)
 
